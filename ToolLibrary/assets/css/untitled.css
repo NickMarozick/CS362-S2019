@@ -21,7 +21,7 @@
 
 #search-list-row {
   background-color: rgba(0,0,0,0.85);
-  /*display: none;*/
+  display: none;
 }
 
 .navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
