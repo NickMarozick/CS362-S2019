@@ -20,8 +20,13 @@
 }
 
 #search-list-row {
+  margin-top: 118px;
   background-color: rgba(0,0,0,0.85);
   display: none;
+}
+
+.search-list-rows {
+  background-color: rgba(0,0,0,0.85);
 }
 
 .navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
