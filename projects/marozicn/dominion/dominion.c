@@ -733,7 +733,7 @@ int i;
       state->numBuys++; 
          
       //Each other player draws a card
-      for (i = 0; i < state->numPlayers; i++)
+      for (i = 0; i < state->numPlayers; i+2) // changed so every other player draws cards . used to be i++
    {
      if ( i != currentPlayer )
        {
