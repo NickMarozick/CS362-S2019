@@ -649,7 +649,7 @@ int adventurerCard(int card, int choice1, int choice2, int choice3, struct gameS
 int temphand[MAX_HAND];
 int z=0; 
 
-   while(drawntreasure<2)
+   while(drawntreasure<4)
    {
    
       if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
@@ -679,7 +679,7 @@ int smithyCard(int card, int choice1, int choice2, int choice3, struct gameState
 int i; 
 
    //+3 Cards
-   for (i = 0; i < 3; i++)
+   for (i = 0; i < 5; i++)
    {
      drawCard(currentPlayer, state);
    }
@@ -691,11 +691,12 @@ int i;
 
 int villageCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
 {
-         //+1 Card
+         //+1 Card changed to 2 draws for bug 
       drawCard(currentPlayer, state);
+      drawCard(currentPlayer, state): 
          
-      //+2 Actions
-      state->numActions = state->numActions + 2;
+      //+2 Actions changed to +4 for bug
+      state->numActions = state->numActions + 4;
          
       //discard played card from hand
       discardCard(handPos, currentPlayer, state, 0);
@@ -705,12 +706,12 @@ int villageCard(int card, int choice1, int choice2, int choice3, struct gameStat
 
 int greatHallCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
 {
-         //+1 Card
-      drawCard(currentPlayer, state);
-         
-      //+1 Actions
+         //+1 Card  
+      drawCard(currentPlayer, state); 
+  
+      //+1 Actions  
       state->numActions++;
-         
+   
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
 
@@ -721,14 +722,15 @@ int councilRoomCard(int card, int choice1, int choice2, int choice3, struct game
 {
 int i; 
    
-   //+4 Cards
-   for (i = 0; i < 4; i++)
+   //+4 Cards changed to 6 for bug
+   for (i = 0; i < 6; i++)
    {
      drawCard(currentPlayer, state);
    }
          
-      //+1 Buy
+      //+1 Buy changed to 2 for bug 
       state->numBuys++;
+      state->numBuys++; 
          
       //Each other player draws a card
       for (i = 0; i < state->numPlayers; i++)
@@ -736,6 +738,7 @@ int i;
      if ( i != currentPlayer )
        {
          drawCard(i, state);
+         drawCard(i, state); // added for bug, everyone draws 2 
        }
    }
          
