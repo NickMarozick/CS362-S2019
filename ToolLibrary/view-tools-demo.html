@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Tool Share Library</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <div class="modal fade" role="dialog" tabindex="-1" id="my-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CS 361 - Group 15</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <p>Group Members:<br>&nbsp; &nbsp; &nbsp;Kyle Johnson<br>&nbsp; &nbsp; &nbsp;Trevor Frame<br>&nbsp; &nbsp; &nbsp;Joseph Shin<br>&nbsp; &nbsp; &nbsp;Nicholas Marozick<br>&nbsp; &nbsp; &nbsp;Ben Alley<br><br>User Stories:<br>&nbsp; &nbsp;
+                        &nbsp;- Patron can view tools by clicking the search button.<br>&nbsp; &nbsp; &nbsp;- Patron can request to check out a tool by clicking the checkout &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button on the tool page.<br>&nbsp; &nbsp;
+                        &nbsp;- Librarian can create a patron account on their administrative &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; page.</p>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div><nav class="navbar navbar-light navbar-expand-md navbar-fixed-top">
+    <div id="group-brand" class="container-fluid"><a onclick="showModal()" href="#" class="navbar-brand">CS361 - Group 15</a><button data-toggle="collapse" data-target="#navcol-3" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-3">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a href="view-tools-demo.html" class="nav-link active">Patron Views Tools Demo</a></li>
+                <li role="presentation" class="nav-item"><a href="request-tools-demo.html" class="nav-link">Patron Requests Tool Demo</a></li>
+                <li role="presentation" class="nav-item"><a href="create-patron-demo.html" class="nav-link">Librarian  Creates Patron Account Demo</a></li>
+                <li role="presentation" class="nav-item"><a href="#" class="nav-link"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <header id="background" class="masthead text-white text-center bg-secondary" style="background: url('https://images.unsplash.com/photo-1534190239940-9ba8944ea261?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1489&amp;q=80')no-repeat center center;background-size: cover;background-attachment: fixed;">
+        <div class="container">
+            <h1 class="text-primary border-primary mb-5" style="margin: -139px;width: 1089px;padding-left: 271px;">Community Tool Sharing Library</h1>
+            <div class="row padMar">
+                <div class="col padMar shadow" style="padding-left: 0px;padding-right: 0px;margin-left: -17px; display: none;">
+                    <div class="input-group shadow-lg">
+                        <div class="input-group-prepend">
+                            <div class="dropdown btn-group" role="group"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="font-size: 20px;">Choose a search option:&nbsp;</button>
+                                <div class="dropdown-menu" role="menu" style="font-size: 20px;background-color: rgb(0,123,255);color: #ffffff;"><a class="dropdown-item" role="presentation" href="#" style="color: #ffffff;">Search Tools</a><a class="dropdown-item" role="presentation" href="#" style="color: #ffffff;">Search Projects</a></div>
+                            </div>
+                        </div><input class="form-control form-control-lg" type="email" placeholder="Search the library..." style="margin-left: 15px;">
+                        <div class="input-group-append"><button class="btn btn-primary btn-block btn-lg" type="submit">Search</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 offset-xl-0"><button id="view-tools-btn" onclick="showToolList()" class="btn btn-primary btn-lg" type="button">View Tools</button><button class="btn btn-primary btn-lg" type="button" id="view-projects-btn">View Projects</button></div>
+            </div>
+        </div>
+        <div class="row search-list-rows" id="intro-row" style="height: 310px;margin-top: 118px;">
+            <div class="col" style="height: 295px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="margin-top: 133px;">Choose a view above to get started.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row search-list-rows" id="search-list-row" style="height: 2500px;">
+            <div class="col" style="height: 295px;">
+                <div class="container">
+                    <div class="row a-group hide">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 style="margin-left: -465px;margin-top: 33px;">A</h2>
+                                </div>
+                                <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                                    <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row a-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col a-group hide" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary a-group hide" style="width: 138px;margin-top: 30px;margin-left: 51px;">Adjustable Wrenches</h4>
+                        </div>
+                        <div class="col a-group hide" style="width: 202px;"><img src="assets/img/Tool_AdjustableWrenches.png" class="a-group hide" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col a-group hide" style="margin-left: 2px;">
+                            <h4 class="text-danger a-group hide" style="color: rgb(0,123,255);margin-top: 28px;margin-left: -100px;">Currently Unavailable</h4>
+                            <h5 class="a-group hide" style="color: rgb(0,123,255);margin-top: 2px;margin-left: -103px;">Due back: 04/22/2019</h5>
+                        </div>
+                        <div class="col a-group hide" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary wait-btn a-group hide" type="button">Waitlist</button></div>
+                    </div>
+                    <div class="row a-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col a-group hide" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary a-group hide" style="width: 138px;margin-top: 30px;margin-left: 51px;">Axe</h4>
+                        </div>
+                        <div class="col a-group hide" style="width: 202px;"><img src="assets/img/Tool_Axe.png" class="a-group hide" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col a-group hide" style="margin-left: 2px;">
+                            <h4 class="text-danger a-group hide" style="color: rgb(0,123,255);margin-top: 28px;margin-left: -100px;">Currently Unavailable</h4>
+                            <h5 class="a-group hide" style="color: rgb(0,123,255);margin-top: 2px;margin-left: -103px;">Due back: 04/12/2019</h5>
+                        </div>
+                        <div class="col a-group hide" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary wait-btn a-group hide" type="button">Waitlist</button></div>
+                    </div>
+                    <div class="row b-group hide">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">B</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row b-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Bolt Cutters</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_BoltCutters.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                    <div class="row b-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Bow Saw</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_BowSaw.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                    <div class="row c-group hide">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">C</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row c-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Chisels</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_Chisels.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                    <div class="row d-group hide">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">D</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row d-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 30px;margin-left: 51px;">Drill</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_Drill.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: 2px;">
+                            <h4 class="text-danger" style="color: rgb(0,123,255);margin-top: 28px;margin-left: -100px;">Currently Unavailable</h4>
+                            <h5 style="color: rgb(0,123,255);margin-top: 2px;margin-left: -103px;">Due back: 04/12/2019</h5>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary wait-btn" type="button">Waitlist</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">H</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row c-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Hammer</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_Hammer.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">M</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row d-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 30px;margin-left: 51px;">Mallet</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_Mallet.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: 2px;">
+                            <h4 class="text-danger" style="color: rgb(0,123,255);margin-top: 28px;margin-left: -100px;">Currently Unavailable</h4>
+                            <h5 style="color: rgb(0,123,255);margin-top: 2px;margin-left: -103px;">Due back: 04/12/2019</h5>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary wait-btn" type="button">Waitlist</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">N</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row d-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 30px;margin-left: 51px;">Nail Gun</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_NailGun.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: 2px;">
+                            <h4 class="text-danger" style="color: rgb(0,123,255);margin-top: 28px;margin-left: -100px;">Currently Unavailable</h4>
+                            <h5 style="color: rgb(0,123,255);margin-top: 2px;margin-left: -103px;">Due back: 04/20/2019</h5>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary wait-btn" type="button">Waitlist</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="margin-left: -465px;margin-top: 33px;">S</h2>
+                        </div>
+                        <div class="col" style="width: 929px;margin-top: 0px;margin-left: -285px;">
+                            <h1 style="margin-top: 0px;padding-top: 0px;padding-bottom: 24px;width: 1077px;margin-left: -196px;">______________________________________________________</h1>
+                        </div>
+                    </div>
+                    <div class="row c-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Shovel</h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_Shovel.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                    <div class="row c-group hide tool-card" style="background-color: rgba(255,255,255,0.6);width: 1109px;">
+                        <div class="col" style="margin-right: -437px;">
+                            <h4 class="text-left text-primary" style="width: 138px;margin-top: 43px;margin-left: 51px;">Staple Gun<br></h4>
+                        </div>
+                        <div class="col" style="width: 202px;"><img src="assets/img/Tool_StapleGun.png" style="width: 175px;height: 118px;padding: 7px;margin-left: 180px;"></div>
+                        <div class="col" style="margin-left: -2px;">
+                            <h4 class="text-success" style="color: rgb(0,123,255);margin-top: 44px;margin-left: -102px;">Available Now</h4>
+                        </div>
+                        <div class="col" style="width: 350px;margin-left: -256px;margin-right: -103px;margin-top: 37px;"><button class="btn btn-primary checkout-btn" type="button">Checkout</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean" style="filter: blur(0px) brightness(100%) contrast(100%);height: 104px;">
+        <div class="container"><a class="navbar-brand" href="#" style="color: rgb(0,123,255);">Community Tool Share Library</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ml-auto" role="button" href="#">Admin Login</a></div>
+        </div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
