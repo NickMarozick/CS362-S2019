@@ -1,1 +1,1 @@
-This is my assignment-1 submission!
+#Nick Marozick, marozicn
