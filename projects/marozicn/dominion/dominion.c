@@ -694,7 +694,11 @@ int villageCard(int card, int choice1, int choice2, int choice3, struct gameStat
 {
          //+1 Card changed to 2 draws for bug 
       drawCard(currentPlayer, state);
+<<<<<<< HEAD
       drawCard(currentPlayer, state); 
+=======
+      drawCard(currentPlayer, state);
+>>>>>>> master
          
       //+2 Actions changed to +4 for bug
       state->numActions = state->numActions + 4;
