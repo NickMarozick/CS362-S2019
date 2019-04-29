@@ -643,9 +643,10 @@ int getCost(int cardNumber)
   return -1;
 }
 
-int adventurerCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
+int adventurerCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer)
 {
-
+int drawntreasure=0; 
+int cardDrawn; 
 int temphand[MAX_HAND];
 int z=0; 
 
@@ -674,7 +675,7 @@ int z=0;
       return 0;
 }
 
-int smithyCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
+int smithyCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer)
 {
 int i; 
 
@@ -689,11 +690,11 @@ int i;
       return 0;
 }
 
-int villageCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
+int villageCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer)
 {
          //+1 Card changed to 2 draws for bug 
       drawCard(currentPlayer, state);
-      drawCard(currentPlayer, state): 
+      drawCard(currentPlayer, state);
          
       //+2 Actions changed to +4 for bug
       state->numActions = state->numActions + 4;
@@ -704,7 +705,7 @@ int villageCard(int card, int choice1, int choice2, int choice3, struct gameStat
       return 0; 
 }
 
-int greatHallCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
+int greatHallCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer)
 {
          //+1 Card  
       drawCard(currentPlayer, state); 
@@ -718,7 +719,7 @@ int greatHallCard(int card, int choice1, int choice2, int choice3, struct gameSt
       return 0;
 }
 
-int councilRoomCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPOS, int *bonus, int currentPlayer)
+int councilRoomCard(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer)
 {
 int i; 
    
