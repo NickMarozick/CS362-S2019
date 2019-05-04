@@ -12,7 +12,7 @@ int main() {
     int discarded = 1;
     int xtraCoins = 0;
     int shuffledCards = 0;
-    int card = 16; // greatHall
+    int card = 14; // village
     int i, j, m;
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
     int remove1, remove2;
@@ -27,7 +27,7 @@ int main() {
     initializeGame(numPlayers, k, seed, &G);
 
 
-/* Card Test 4 - Great Hall Card Effect */ 
+/* Card Test 3 - Village Card Effect */ 
 
 /*
 1 Draws correct amount of cards   - Pass or Fail 
@@ -69,14 +69,14 @@ int main() {
     int otherDiscardPre; 
     int otherDiscardPost; 
 
-    printf("----------------- CardTest4 - Testing GreatHall Card Input in CardEffect Function: ----------------\n\n");
+    printf("----------------- CardTest3 - Testing Village Card Input in CardEffect Function ----------------\n\n");
 
   
     /*  copy the game state to a test case */
     memcpy(&testG, &G, sizeof(struct gameState));
 
     /* Print Player 1 Hand & Details Before Smithy Function */ 
-    printf("Printing Cards BEFORE greatHall function is called: \n");
+    printf("Printing Cards BEFORE village function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -135,13 +135,13 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-   cardEffect(card, choice1, choice2, choice3, &testG, handpos, &bonus);
+    cardEffect(card, choice1, choice2, choice3, &testG, handpos, &bonus);
 
     /*-------------------------------------------------------------------------------------*/ 
 
     /* print cards after adventurerCard is played  */
    /* Print Player 1 Hand & Details After Smithy Function */ 
-    printf("Printing Cards AFTER greatHall function is called: \n");
+    printf("Printing Cards AFTER village function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -191,10 +191,10 @@ int main() {
 
     if (postHandCount - preHandCount ==0) // discard one to playedCard so 3 - 1 = 2 
     {
-        printf("cardEffect(greatHall): PASS - Hand was 1 Card bigger after the function than before as expected\n");
+        printf("cardEffect(village): PASS - Hand was 1 Card bigger after the function than before as expected\n");
         score++;}
     else
-        printf("cardEffect(greatHall): FAIL - Hand was not 1 Card bigger after the function than before as expected\n");
+        printf("cardEffect(village): FAIL - Hand was not 1 Card bigger after the function than before as expected\n");
 
     printf("\n");
 
@@ -203,10 +203,10 @@ int main() {
     printf("TEST 2: All Cards Accounted For \n");
 
     if (preDeckCount+preHandCount+prePlayedCardCount+preDiscardCount == postPlayedCardCount+postDeckCount+postHandCount+postDiscardCount) {
-        printf("cardEffect(greatHall): PASS - All Cards Accounted for, no cards lost\n"); 
+        printf("cardEffect(village): PASS - All Cards Accounted for, no cards lost\n"); 
         score++; }
     else
-        printf("cardEffect(greatHall): FAIL - Not all Cards Accounted for, cards lost\n"); 
+        printf("cardEffect(village): FAIL - Not all Cards Accounted for, cards lost\n"); 
 
 
     //printf("need to finish desiging the test\n"); //2 Deck + Pre-Hand - Played Card Count Post = Post Hand - Pass or Fail 
@@ -217,10 +217,10 @@ int main() {
     printf("TEST 3: Making Sure Player Turn is not Changed \n");
 
     if (playerTurnPre==playerTurnPost) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player Turn as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the player Turn as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player turn in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the player turn in error\n");}
 
     printf("\n");
 
@@ -228,21 +228,21 @@ int main() {
     printf("TEST 4: Affirming Buys are not Changed \n");
 
     if (preNumBuys==postNumBuys) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player buys count as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the player buys count as expected\n"); 
         score++;}
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player buys count in error\n"); }
+        { printf("cardEffect(village): FAIL - Function changed the player buys count in error\n"); }
 
     printf("\n");
 
     /* ----------- TEST 5: Affirming Actions are increased by 2 -------------- */
-    printf("TEST 5: Affirming Actions are increased by 1 \n");
+    printf("TEST 5: Affirming Actions are increased by 2 \n");
 
-    if (preActions+1==postActions) {
-        printf("cardEffect(greatHall): PASS - Function increased actions by 1 count as expected\n"); 
+    if (preActions+2==postActions) {
+        printf("cardEffect(village): PASS - Function increased actions by 2 count as expected\n"); 
         score++;}
     else 
-        { printf("cardEffect(greatHall): FAIL - Function did not increase action count by 1, error\n"); }
+        { printf("cardEffect(village): FAIL - Function did not increase action count by 2, error\n"); }
 
     printf("\n");
 
@@ -250,10 +250,10 @@ int main() {
     printf("TEST 6: Affirming Supply Card Number Not Changed \n");
 
     if (preProvince==postProvince && preDuchy==postDuchy && preEstate==postEstate) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player supply cards count as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the player supply cards count as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player supply cards count in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the player supply cards count in error\n");}
 
     printf("\n");
 
@@ -261,10 +261,10 @@ int main() {
     printf("TEST 7: Unphased - Phase Stays the Same \n");
 
     if (prePhase==postPhase) {
-        printf("cardEffect(greatHall): PASS - Function did not change the game phase as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the game phase as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the game phase in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the game phase in error\n");}
 
     printf("\n");
 
@@ -273,10 +273,10 @@ int main() {
     printf("TEST 8: Affirming Other Player Deck Not Changed \n");
 
     if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {
-        printf("cardEffect(greatHall): PASS - Function did not change the other player's cards as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the other player's cards as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the othe player's cards in error\n"); }
+        { printf("cardEffect(village): FAIL - Function changed the othe player's cards in error\n"); }
 
     printf("\n");
 

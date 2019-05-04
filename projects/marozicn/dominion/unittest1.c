@@ -12,7 +12,7 @@ int main() {
     int discarded = 1;
     int xtraCoins = 0;
     int shuffledCards = 0;
-    int card = 16; // greatHall
+    int card = 13; // smithy
     int i, j, m;
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
     int remove1, remove2;
@@ -27,7 +27,7 @@ int main() {
     initializeGame(numPlayers, k, seed, &G);
 
 
-/* Card Test 4 - Great Hall Card Effect */ 
+/* Unit Test 1 - Smithy Card */ 
 
 /*
 1 Draws correct amount of cards   - Pass or Fail 
@@ -39,7 +39,7 @@ int main() {
 7 Player2 Deck & Discard remain the same  */ 
 
     int score=0; 
-    int total=8;
+    int total=7;
     int otherPlayer; 
     int preHandCount; 
     int postHandCount; 
@@ -69,14 +69,14 @@ int main() {
     int otherDiscardPre; 
     int otherDiscardPost; 
 
-    printf("----------------- CardTest4 - Testing GreatHall Card Input in CardEffect Function: ----------------\n\n");
+    printf("----------------- Unit Test 1 - Testing Refactored Smithy Function: ----------------\n\n");
 
   
     /*  copy the game state to a test case */
     memcpy(&testG, &G, sizeof(struct gameState));
 
     /* Print Player 1 Hand & Details Before Smithy Function */ 
-    printf("Printing Cards BEFORE greatHall function is called: \n");
+    printf("Printing Cards BEFORE smithy function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -135,13 +135,13 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-   cardEffect(card, choice1, choice2, choice3, &testG, handpos, &bonus);
+    smithyCard(card, choice1, choice2, choice3, &testG, handpos, &bonus, thisPlayer);
 
     /*-------------------------------------------------------------------------------------*/ 
 
     /* print cards after adventurerCard is played  */
    /* Print Player 1 Hand & Details After Smithy Function */ 
-    printf("Printing Cards AFTER greatHall function is called: \n");
+    printf("Printing Cards AFTER smithy function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -180,21 +180,20 @@ int main() {
     printf("Discard Count Post: %d\n", testG.discardCount[otherPlayer]);
     otherDiscardPost = testG.discardCount[otherPlayer]; 
     
-    
 
     /* Test Results */ 
 
     printf("------------------------------------------ Test Results: ------------------------------------------\n\n"); 
     
-    /* ----------- TEST 1: Checking for Drawing of 1 Card -------------- */
-    printf("TEST 1: Checking for Drawing of 1 Cards \n");
+    /* ----------- TEST 1: Drawing for treasure -------------- */
+    printf("TEST 1: Checking for Drawing of 3 Cards \n");
 
-    if (postHandCount - preHandCount ==0) // discard one to playedCard so 3 - 1 = 2 
+    if (postHandCount - preHandCount ==2) // discard one to playedCard so 3 - 1 = 2 
     {
-        printf("cardEffect(greatHall): PASS - Hand was 1 Card bigger after the function than before as expected\n");
+        printf("smithyCard(): PASS - Hand was 3 Cards bigger after the function than before as expected\n");
         score++;}
     else
-        printf("cardEffect(greatHall): FAIL - Hand was not 1 Card bigger after the function than before as expected\n");
+        printf("smithyCard(): FAIL - Hand was not 3 Cards bigger after the function than before as expected\n");
 
     printf("\n");
 
@@ -202,11 +201,11 @@ int main() {
      /* ----------- TEST 2: All Cards Accounted For -------------- */
     printf("TEST 2: All Cards Accounted For \n");
 
-    if (preDeckCount+preHandCount+prePlayedCardCount+preDiscardCount == postPlayedCardCount+postDeckCount+postHandCount+postDiscardCount) {
-        printf("cardEffect(greatHall): PASS - All Cards Accounted for, no cards lost\n"); 
+    if (preDeckCount+preHandCount+prePlayedCardCount == postPlayedCardCount+postDeckCount+postHandCount) {
+        printf("smithyCard(): PASS - All Cards Accounted for, no cards lost\n"); 
         score++; }
     else
-        printf("cardEffect(greatHall): FAIL - Not all Cards Accounted for, cards lost\n"); 
+        printf("smithyCard(): FAIL - Not all Cards Accounted for, cards lost\n"); 
 
 
     //printf("need to finish desiging the test\n"); //2 Deck + Pre-Hand - Played Card Count Post = Post Hand - Pass or Fail 
@@ -217,66 +216,55 @@ int main() {
     printf("TEST 3: Making Sure Player Turn is not Changed \n");
 
     if (playerTurnPre==playerTurnPost) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player Turn as expected\n"); 
+        printf("smithyCard(): PASS - Function did not change the player Turn as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player turn in error\n");}
+        { printf("smithyCard(): FAIL - Function changed the player turn in error\n");}
 
     printf("\n");
 
-    /* ----------- TEST 4: Affirming Buys are not Changed -------------- */
-    printf("TEST 4: Affirming Buys are not Changed \n");
+    /* ----------- TEST 4: Affirming Buys & Actions are not Changed -------------- */
+    printf("TEST 4: Affirming Buys & Actions are not Changed \n");
 
-    if (preNumBuys==postNumBuys) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player buys count as expected\n"); 
+    if (preNumBuys==postNumBuys && preActions==postActions) {
+        printf("smithyCard(): PASS - Function did not change the player buys or actions count as expected\n"); 
         score++;}
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player buys count in error\n"); }
+        { printf("smithyCard(): FAIL - Function changed the player buys or action count in error\n"); }
 
     printf("\n");
 
-    /* ----------- TEST 5: Affirming Actions are increased by 2 -------------- */
-    printf("TEST 5: Affirming Actions are increased by 1 \n");
-
-    if (preActions+1==postActions) {
-        printf("cardEffect(greatHall): PASS - Function increased actions by 1 count as expected\n"); 
-        score++;}
-    else 
-        { printf("cardEffect(greatHall): FAIL - Function did not increase action count by 1, error\n"); }
-
-    printf("\n");
-
-    /* ----------- TEST 6: Affirming Supply Card Number Not Changed -------------- */
-    printf("TEST 6: Affirming Supply Card Number Not Changed \n");
+    /* ----------- TEST 5: Affirming Supply Card Number Not Changed -------------- */
+    printf("TEST 5: Affirming Supply Card Number Not Changed \n");
 
     if (preProvince==postProvince && preDuchy==postDuchy && preEstate==postEstate) {
-        printf("cardEffect(greatHall): PASS - Function did not change the player supply cards count as expected\n"); 
+        printf("smithyCard(): PASS - Function did not change the player supply cards count as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the player supply cards count in error\n");}
+        { printf("smithyCard(): FAIL - Function changed the player supply cards count in error\n");}
 
     printf("\n");
 
-    /* ----------- TEST 7: Unphased - Phase Stays the Same -------------- */
-    printf("TEST 7: Unphased - Phase Stays the Same \n");
+    /* ----------- TEST 6: Unphased - Phase Stays the Same -------------- */
+    printf("TEST 6: Unphased - Phase Stays the Same \n");
 
     if (prePhase==postPhase) {
-        printf("cardEffect(greatHall): PASS - Function did not change the game phase as expected\n"); 
+        printf("smithyCard(): PASS - Function did not change the game phase as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the game phase in error\n");}
+        { printf("smithyCard(): FAIL - Function changed the game phase in error\n");}
 
     printf("\n");
 
 
-    /* ----------- TEST 8: Affirming Supply Card Number Not Changed -------------- */
-    printf("TEST 8: Affirming Other Player Deck Not Changed \n");
+    /* ----------- TEST 7: Affirming Supply Card Number Not Changed -------------- */
+    printf("TEST 7: Affirming Other Player Deck Not Changed \n");
 
-    if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {
-        printf("cardEffect(greatHall): PASS - Function did not change the other player's cards as expected\n"); 
+    if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDeckPost) {
+        printf("smithyCard(): PASS - Function did not change the other player's cards as expected\n"); 
         score++; }
     else 
-        { printf("cardEffect(greatHall): FAIL - Function changed the othe player's cards in error\n"); }
+        { printf("smithyCard(): FAIL - Function changed the othe player's cards in error\n"); }
 
     printf("\n");
 
