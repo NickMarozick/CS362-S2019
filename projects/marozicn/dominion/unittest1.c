@@ -260,7 +260,7 @@ int main() {
     /* ----------- TEST 7: Affirming Other Player Deck Not Changed -------------- */
     printf("TEST 7: Affirming Other Player Deck Not Changed \n");
 
-    if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDeckPost) {
+    if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {
         printf("smithyCard(): PASS - Function did not change the other player's cards as expected\n"); 
         score++; }
     else 
