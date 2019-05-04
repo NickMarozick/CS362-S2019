@@ -188,7 +188,7 @@ int main() {
     
 
 
-    /* ----------- TEST 1: Drawing for treasure -------------- */
+    /* ----------- TEST 1: Drawing for 2 Extra Cards -------------- */
     printf("TEST 1: Drawing for 2 Extra Cards \n");
 
     if (postHandCount - preHandCount ==1) // discard one to playedCard so 2 - 1 =1 
@@ -199,7 +199,7 @@ int main() {
 
     printf("\n");
 
-    /* ----------- TEST 2: Checking Added Cards to Verify if Thet Are Treasure -------------- */
+    /* ----------- TEST 2: Checking Added Cards to Verify if They Are Treasure -------------- */
     printf("TEST 2: Checking Added Cards to Verify if Thet Are Treasure \n");
 
     int contentFail=0;
@@ -279,7 +279,7 @@ int main() {
     printf("\n");
 
 
-    /* ----------- TEST 8: Affirming Supply Card Number Not Changed -------------- */
+    /* ----------- TEST 8: Affirming Other Player Deck Not Changed -------------- */
     printf("TEST 8: Affirming Other Player Deck Not Changed \n");
 
     if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {

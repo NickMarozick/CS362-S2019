@@ -185,7 +185,7 @@ int main() {
 
     printf("------------------------------------------ Test Results: ------------------------------------------\n\n"); 
     
-    /* ----------- TEST 1: Drawing for treasure -------------- */
+    /* ----------- TEST 1: Drawing for 3 Cards -------------- */
     printf("TEST 1: Checking for Drawing of 3 Cards \n");
 
     if (postHandCount - preHandCount ==2) // discard one to playedCard so 3 - 1 = 2 
@@ -257,7 +257,7 @@ int main() {
     printf("\n");
 
 
-    /* ----------- TEST 7: Affirming Supply Card Number Not Changed -------------- */
+    /* ----------- TEST 7: Affirming Other Player Deck Not Changed -------------- */
     printf("TEST 7: Affirming Other Player Deck Not Changed \n");
 
     if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDeckPost) {

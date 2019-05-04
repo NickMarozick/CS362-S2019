@@ -269,7 +269,7 @@ int main() {
     printf("\n");
 
 
-    /* ----------- TEST 8: Affirming Supply Card Number Not Changed -------------- */
+    /* ----------- TEST 8: Affirming Other Player Deck Not Changed -------------- */
     printf("TEST 8: Affirming Other Player Deck Not Changed \n");
 
     if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {
