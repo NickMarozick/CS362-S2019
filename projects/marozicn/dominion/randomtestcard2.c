@@ -19,7 +19,7 @@ int main () {
   int card, coin_bonus, seed, numPlayers, choice1, choice2, choice3, handPos, thisPlayer;
 
     int score=0; 
-    int total=7;
+    int total=8;
     int otherPlayer; 
     int preHandCount; 
     int postHandCount; 
@@ -48,7 +48,7 @@ int main () {
     int otherDeckPost; 
     int otherDiscardPre; 
     int otherDiscardPost; 
-    int totalScore = 700; 
+    int totalScore = 800; 
     int accumulatedScore=0; 
     int m; 
 
@@ -63,7 +63,7 @@ int main () {
   struct gameState testG;
   
 
-  printf("----------------- CardTest - Testing Smithy Card Input with Randomized Tests: ----------------\n\n");
+  printf("----------------- CardTest - Testing Village Card Input with Randomized Tests: ----------------\n\n");
 
   //SelectStream(2);
   //PutSeed(3);
@@ -100,8 +100,8 @@ int main () {
     /*  copy the game state to a test case */
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    /* Print Player 1 Hand & Details Before Smithy Function */ 
-    printf("Printing Cards BEFORE Smithy function is called: \n");
+    /* Print Player 1 Hand & Details Before Village Function */ 
+    printf("Printing Cards BEFORE Village function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -163,8 +163,8 @@ int main () {
     /*-------------------------------------------------------------------------------------*/ 
 
     /* print cards after adventurerCard is played  */
-   /* Print Player 1 Hand & Details After Smithy Function */ 
-    printf("Printing Cards AFTER Smithy function is called: \n");
+   /* Print Player 1 Hand & Details After adventurer Function */ 
+    printf("Printing Cards AFTER village function is called: \n");
     for (m=0; m<testG.handCount[thisPlayer]; m++) {
             printf("(%d)", testG.hand[thisPlayer][m]);}
     printf("\n");
@@ -210,16 +210,17 @@ int main () {
     
     score=0; 
 
-    /* ----------- TEST 1: Drawing for 3 Extra Cards -------------- */
-    printf("TEST 1: Checking for Drawing of 3 Cards \n");
 
-    if (postHandCount - preHandCount ==2) // discard one to playedCard so 3 - 1 = 2 
+    /* ----------- TEST 1: Checking for Drawing of 1 Card -------------- */
+    printf("TEST 1: Checking for Drawing of 1 Cards \n");
+
+    if (postHandCount - preHandCount ==0) // discard one to playedCard so 3 - 1 = 2 
     {
-        printf("cardEffect(smithy): PASS - Hand was 3 Cards bigger after the function than before as expected\n");
+        printf("cardEffect(village): PASS - Hand was 1 Card bigger after the function than before as expected\n");
         score++;
         accumulatedScore++;}
     else
-        printf("cardEffect(smithy): FAIL - Hand was not 3 Cards bigger after the function than before as expected\n");
+        printf("cardEffect(village): FAIL - Hand was not 1 Card bigger after the function than before as expected\n");
 
     printf("\n");
 
@@ -228,11 +229,11 @@ int main () {
     printf("TEST 2: All Cards Accounted For \n");
 
     if (preDeckCount+preHandCount+prePlayedCardCount+preDiscardCount == postPlayedCardCount+postDeckCount+postHandCount+postDiscardCount) {
-        printf("cardEffect(smithy): PASS - All Cards Accounted for, no cards lost\n"); 
+        printf("cardEffect(village): PASS - All Cards Accounted for, no cards lost\n"); 
         score++;
         accumulatedScore++; }
     else
-        printf("cardEffect(smithy): FAIL - Not all Cards Accounted for, cards lost\n"); 
+        printf("cardEffect(village): FAIL - Not all Cards Accounted for, cards lost\n"); 
 
 
     //printf("need to finish desiging the test\n"); //2 Deck + Pre-Hand - Played Card Count Post = Post Hand - Pass or Fail 
@@ -243,60 +244,72 @@ int main () {
     printf("TEST 3: Making Sure Player Turn is not Changed \n");
 
     if (playerTurnPre==playerTurnPost) {
-        printf("cardEffect(smithy): PASS - Function did not change the player Turn as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the player Turn as expected\n"); 
         score++;
         accumulatedScore++; }
     else 
-        { printf("cardEffect(smithy): FAIL - Function changed the player turn in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the player turn in error\n");}
 
     printf("\n");
 
-    /* ----------- TEST 4: Affirming Buys & Actions are not Changed -------------- */
-    printf("TEST 4: Affirming Buys & Actions are not Changed \n");
+    /* ----------- TEST 4: Affirming Buys are not Changed -------------- */
+    printf("TEST 4: Affirming Buys are not Changed \n");
 
-    if (preNumBuys==postNumBuys && preActions==postActions) {
-        printf("cardEffect(smithy): PASS - Function did not change the player buys or actions count as expected\n"); 
+    if (preNumBuys==postNumBuys) {
+        printf("cardEffect(village): PASS - Function did not change the player buys count as expected\n"); 
         score++;
         accumulatedScore++;}
     else 
-        { printf("cardEffect(smithy): FAIL - Function changed the player buys or action count in error\n"); }
+        { printf("cardEffect(village): FAIL - Function changed the player buys count in error\n"); }
 
     printf("\n");
 
-    /* ----------- TEST 5: Affirming Supply Card Number Not Changed -------------- */
-    printf("TEST 5: Affirming Supply Card Number Not Changed \n");
+    /* ----------- TEST 5: Affirming Actions are increased by 2 -------------- */
+    printf("TEST 5: Affirming Actions are increased by 2 \n");
+
+    if (preActions+2==postActions) {
+        printf("cardEffect(village): PASS - Function increased actions by 2 count as expected\n"); 
+        score++;
+        accumulatedScore++; }
+    else 
+        { printf("cardEffect(village): FAIL - Function did not increase action count by 2, error\n"); }
+
+    printf("\n");
+
+    /* ----------- TEST 6: Affirming Supply Card Number Not Changed -------------- */
+    printf("TEST 6: Affirming Supply Card Number Not Changed \n");
 
     if (preProvince==postProvince && preDuchy==postDuchy && preEstate==postEstate) {
-        printf("cardEffect(smithy): PASS - Function did not change the player supply cards count as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the player supply cards count as expected\n"); 
         score++;
         accumulatedScore++; }
     else 
-        { printf("cardEffect(smithy): FAIL - Function changed the player supply cards count in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the player supply cards count in error\n");}
 
     printf("\n");
 
-    /* ----------- TEST 6: Unphased - Phase Stays the Same -------------- */
-    printf("TEST 6: Unphased - Phase Stays the Same \n");
+    /* ----------- TEST 7: Unphased - Phase Stays the Same -------------- */
+    printf("TEST 7: Unphased - Phase Stays the Same \n");
 
     if (prePhase==postPhase) {
-        printf("cardEffect(smithy): PASS - Function did not change the game phase as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the game phase as expected\n"); 
         score++;
         accumulatedScore++; }
     else 
-        { printf("cardEffect(smithy): FAIL - Function changed the game phase in error\n");}
+        { printf("cardEffect(village): FAIL - Function changed the game phase in error\n");}
 
     printf("\n");
 
 
-    /* ----------- TEST 7: Affirming Other Player Deck Not Changed -------------- */
-    printf("TEST 7: Affirming Other Player Deck Not Changed \n");
+    /* ----------- TEST 8: Affirming Other Player Deck Not Changed -------------- */
+    printf("TEST 8: Affirming Other Player Deck Not Changed \n");
 
     if (otherDeckPre==otherDeckPost && otherDiscardPre==otherDiscardPost) {
-        printf("cardEffect(smithy): PASS - Function did not change the other player's cards as expected\n"); 
+        printf("cardEffect(village): PASS - Function did not change the other player's cards as expected\n"); 
         score++;
         accumulatedScore++; }
     else 
-        { printf("cardEffect(smithy): FAIL - Function changed the othe player's cards in error\n"); }
+        { printf("cardEffect(village): FAIL - Function changed the othe player's cards in error\n"); }
 
     printf("\n");
 
@@ -313,6 +326,9 @@ int main () {
     }
 
     printf("\n");
+
+
+
 }
 
   printf("---------------------------------- Total Results ----------------------------------\n\n");
