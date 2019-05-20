@@ -16,7 +16,7 @@ int main () {
 
   int i, n; 
 
-  int card, coin_bonus, seed, numPlayers, choice1, choice2, choice3, handPos, thisPlayer;
+  int card, seed, numPlayers, choice1, choice2, choice3, handPos, thisPlayer;
 
     int score=0; 
     int total=7;
@@ -48,9 +48,10 @@ int main () {
     int otherDeckPost; 
     int otherDiscardPre; 
     int otherDiscardPost; 
-    int totalScore = 700; 
+    int totalScore = 350; 
     int accumulatedScore=0; 
     int m; 
+    int coin_bonus=0; 
 
   seed=1000;
 
@@ -68,10 +69,8 @@ int main () {
   //SelectStream(2);
   //PutSeed(3);
 
-  for (n = 0; n < 100; n++) {
-    //numPlayers = floor(Random() * 3);
+  for (n = 0; n < 50; n++) {
     numPlayers = rand()%3+2;
-    //numPlayers = numPlayers+2;
     G.whoseTurn = rand()% numPlayers + 1;
     thisPlayer = G.whoseTurn; 
 
@@ -79,23 +78,12 @@ int main () {
     printf("Whose Turn: %d\n", G.whoseTurn);
     initializeGame(numPlayers, k, seed, &G);
 
-    //choice1= floor(Random() * 3);
-    //choice2= floor(Random() * 3);
-    //choice3= floor(Random() * 3);
-    coin_bonus = 0;
-    //handPos = floor(Random() * G.handCount[p]);
     handPos = G.handCount[G.whoseTurn];
-    //card = floor(Random() * 10);
-    //card= rand()%10;
     card = 13;
 
     printf("n: %d\n", n);
     printf("handPos: %d\n", handPos);
-    //printf("choice1: %d\n", choice1);
-    //printf("choice2: %d\n", choice2);
-    //printf("choice3: %d\n", choice3);
-    //printf("card: %d\n\n\n", card);
-
+   
   
     /*  copy the game state to a test case */
     memcpy(&testG, &G, sizeof(struct gameState));

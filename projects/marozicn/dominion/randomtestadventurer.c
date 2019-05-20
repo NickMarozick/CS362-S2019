@@ -16,7 +16,7 @@ int main () {
 
   int i, n; 
 
-  int card, coin_bonus, seed, numPlayers, choice1, choice2, choice3, handPos, thisPlayer;
+  int card, seed, numPlayers, choice1, choice2, choice3, handPos, thisPlayer;
 
     int score=0; 
     int total=8;
@@ -48,9 +48,10 @@ int main () {
     int otherDeckPost; 
     int otherDiscardPre; 
     int otherDiscardPost; 
-    int totalScore = 800; 
+    int totalScore = 400; 
     int accumulatedScore=0; 
     int m; 
+    int coin_bonus=0; 
 
   seed=1000;
 
@@ -65,13 +66,9 @@ int main () {
 
   printf("----------------- CardTest2 - Testing Adventurer Card Input in with Randomized Tests: ----------------\n\n");
 
-  //SelectStream(2);
-  //PutSeed(3);
 
-  for (n = 0; n < 100; n++) {
-    //numPlayers = floor(Random() * 3);
+  for (n = 0; n < 50; n++) {
     numPlayers = rand()%3+2;
-    //numPlayers = numPlayers+2;
     G.whoseTurn = rand()% numPlayers + 1;
     thisPlayer = G.whoseTurn; 
 
@@ -79,22 +76,11 @@ int main () {
     printf("Whose Turn: %d\n", G.whoseTurn);
     initializeGame(numPlayers, k, seed, &G);
 
-    //choice1= floor(Random() * 3);
-    //choice2= floor(Random() * 3);
-    //choice3= floor(Random() * 3);
-    coin_bonus = 0;
-    //handPos = floor(Random() * G.handCount[p]);
     handPos = G.handCount[G.whoseTurn];
-    //card = floor(Random() * 10);
-    //card= rand()%10;
     card = 7;
 
     printf("n: %d\n", n);
     printf("handPos: %d\n", handPos);
-    //printf("choice1: %d\n", choice1);
-    //printf("choice2: %d\n", choice2);
-    //printf("choice3: %d\n", choice3);
-    //printf("card: %d\n\n\n", card);
 
   
     /*  copy the game state to a test case */
