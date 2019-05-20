@@ -87,7 +87,7 @@ int main () {
     handPos = G.handCount[G.whoseTurn];
     //card = floor(Random() * 10);
     //card= rand()%10;
-    card = 7;
+    card = 14; // village card
 
     printf("n: %d\n", n);
     printf("handPos: %d\n", handPos);
