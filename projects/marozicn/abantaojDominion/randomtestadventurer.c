@@ -71,7 +71,7 @@ int main () {
   for (n = 0; n < 50; n++) {
     numPlayers = rand()%3+2;
     G.whoseTurn = rand()% numPlayers + 1;
-    thisPlayer = G.whoseTurn; 
+    thisPlayer = G.whoseTurn-1; 
 
     printf("Num Players: %d\n", numPlayers);
     printf("Whose Turn: %d\n", G.whoseTurn);
