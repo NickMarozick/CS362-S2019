@@ -126,14 +126,14 @@ int main () {
     printf("\n-----------------------------------------------------------------------\n"); 
     printf("Other Player Info Pre Function / Card Effect:\n"); 
 
-    if (testG.whoseTurn==numPlayers-1)
+    if (thisPlayer==numPlayers-1)
     {
         otherPlayer = 0; 
     }
 
     else
     {
-        otherPlayer = testG.whoseTurn + 1; 
+        otherPlayer = thisPlayer + 1; 
     }
 
     printf("Deck Count Pre: %d\n", testG.deckCount[otherPlayer]);
