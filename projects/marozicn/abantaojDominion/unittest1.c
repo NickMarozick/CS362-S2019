@@ -135,7 +135,7 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    smithyCard(card, choice1, choice2, choice3, &testG, handpos, &bonus, thisPlayer);
+    playSmithyCard(thisPlayer, &testG, handpos);
 
     /*-------------------------------------------------------------------------------------*/ 
 

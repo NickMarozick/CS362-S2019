@@ -19,6 +19,7 @@ int main() {
     int seed = 1000;
     int numPlayers = 2;
     int thisPlayer = 0;
+    int tempHand[MAX_HAND]; 
     struct gameState G, testG;
     int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
                         sea_hag, tribute, smithy, council_room};
@@ -136,7 +137,7 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    adventurerCard(card, choice1, choice2, choice3, &testG, handpos, &bonus, thisPlayer);
+    playAdventurerCard(thisPlayer, &testG, handpos, tempHand);
 
     /*-------------------------------------------------------------------------------------*/ 
 

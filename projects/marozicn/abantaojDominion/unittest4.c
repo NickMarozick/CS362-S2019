@@ -135,7 +135,7 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    greatHallCard(card, choice1, choice2, choice3, &testG, handpos, &bonus, thisPlayer);
+    playGreatHallCard(thisPlayer, &testG, handpos);
 
     /*-------------------------------------------------------------------------------------*/ 
 
