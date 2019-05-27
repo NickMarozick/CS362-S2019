@@ -137,7 +137,7 @@ int main() {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    playAdventurerCard(thisPlayer, &testG, handpos, tempHand);
+    playAdventurerCard(thisPlayer, &testG, tempHand);
 
     /*-------------------------------------------------------------------------------------*/ 
 
