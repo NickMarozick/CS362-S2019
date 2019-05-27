@@ -52,6 +52,7 @@ int main () {
     int accumulatedScore=0; 
     int m; 
     int coin_bonus=0; 
+    int tempHand[MAX_DECK]; 
 
   seed=1000;
 
@@ -144,7 +145,7 @@ int main () {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    cardEffect(card, choice1, choice2, choice3, &testG, handPos, coin_bonus);
+    playAdventurerCard(thisPlayer, &testG, tempHand);
 
     /*-------------------------------------------------------------------------------------*/ 
 

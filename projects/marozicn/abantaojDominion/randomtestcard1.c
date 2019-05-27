@@ -146,7 +146,7 @@ int main () {
 
     /*----------------------- Function Call -----------------------------------------------*/ 
 
-    cardEffect(card, choice1, choice2, choice3, &testG, handPos, coin_bonus);
+    playSmithyCard(thisPlayer, &testG, handPos);
 
     /*-------------------------------------------------------------------------------------*/ 
 
